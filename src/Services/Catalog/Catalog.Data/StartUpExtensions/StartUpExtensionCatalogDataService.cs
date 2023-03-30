@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Catalog.Data.Context;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Catalog.Data.StartUpExtensions
@@ -7,7 +8,7 @@ namespace Catalog.Data.StartUpExtensions
     {
         public static void AddCatalogDataService(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-
+            serviceCollection.AddScoped<ICatalogContext, CatalogContext>();
         }
     }
 }
